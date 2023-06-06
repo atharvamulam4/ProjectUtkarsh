@@ -1,0 +1,20 @@
+ul a:hover{
+    background-color:#87CEEB;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div form label{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+div ul a:hover {
+  border-radius: 10px;
+}
+  

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1 mb-4 border-bottom">
+          <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+              <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+          </div>
+    
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="https://atharvamulam4.github.io/ProjectUtkarsh/" class="nav-link px-2 me-2 link-secondary">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">About me</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://github.com/atharvamulam4">Github</a></li>
+                <li><a class="dropdown-item" href="https://www.linkedin.com/in/atharva-mulam-701a9b155/">LinkedIn</a></li>
+              </ul>
+            </li>
+          </ul>
+        </header>
+      </div> 
+
+      <div class="px-4 py-4 my-3 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">Hello! I am Atharva.</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            I would be highly appreciative if you took your precious time to fill out the form below with your basic details.</p>
+        </div>
+
+        <div class="container">
+          <div class="center">
+            <button class="btn btn-primary" id="openFormBtn">Open Form</button>
+          </div>  
+          
+            <div id="formContainer" style="display: none;">
+              <form id="myForm">
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" class="form-control  form-control-md mb-2" id="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control mb-2" id="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message:</label>
+                  <input type="text" class="form-control" id="message" required>
+                </div>
+                <button type="submit" class="btn btn-primary my-4 me-2" id="submitBtn" onclick="sendEmail()">Submit</button>
+                <button type="button" class="btn btn-secondary my-4" id="cancelBtn">Cancel</button>
+              </form>
+            </div>
+          </div>
+    
+      </div>
+
+      <script>
+        document.getElementById("openFormBtn").addEventListener("click", function() {
+          document.getElementById("formContainer").style.display = "block";
+          document.getElementById("openFormBtn").style.display = "none";
+        });
+      
+        document.getElementById("cancelBtn").addEventListener("click", function() {
+          document.getElementById("openFormBtn").style.display = "block";
+          document.getElementById("formContainer").style.display = "none";
+          document.getElementById("myForm").reset();
+        });
+      </script>
+
+      <script>
+          document.getElementById("myForm").addEventListener("submit", function(event) {
+          event.preventDefault(); 
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var message = document.getElementById("message").value;
+          var subject = "New enquiry form";
+          var body = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+
+          var mailtoLink = "mailto:testathv123@gmail.com" + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+          window.location.href = mailtoLink;
+        });
+      </script>
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>
